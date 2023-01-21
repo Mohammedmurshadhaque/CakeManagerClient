@@ -1,0 +1,15 @@
+version: '3,7'
+services:
+  cake-manager-client:
+    image: murshad/cake_manager_client:latest
+    ports:
+      - "8080:8080"
+    restart: always
+
+  python-fast-api:
+    image: murshad/python_fast_api:latest
+    ports:
+      - "5000:5000"
+    restart: always
+    depends_on:
+      - cake-manager-client
